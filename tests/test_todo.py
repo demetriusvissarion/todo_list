@@ -20,3 +20,27 @@ def test_if_marks_complete():
     todo.mark_complete()
     result = todo.complete
     assert result == True
+
+
+"""
+Given an instance of the class without a task
+#__init__ throws an error
+"""
+def test_if_init_without_a_task():
+
+    with pytest.raises(Exception) as e: 
+        Todo()
+    error_message = str(e.value)
+    assert error_message == "A task must have at least one character"
+
+
+"""
+Given an instance of the class without a task of None
+#__init__ throws an error
+"""
+def test_if_init_without_a_task():
+
+    with pytest.raises(Exception) as e: 
+        Todo(None)
+    error_message = str(e.value)
+    assert error_message == "A task cannot be 'None'"
